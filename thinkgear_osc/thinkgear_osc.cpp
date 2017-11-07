@@ -11,8 +11,7 @@
 /**
  * Prompts and waits for the user to press ENTER.
  */
-void
-wait() {
+void wait() {
     printf( "\n" );
     printf( "Press the ENTER key...\n" );
     fflush( stdout );
@@ -22,21 +21,10 @@ wait() {
 /**
  * Program which prints ThinkGear Raw Wave Values to stdout.
  */
-int
-main( void ) {
+int main( void ) {
 
 	// define OSC send target
 	UdpTransmitSocket transmitSocket(IpEndpointName("localhost", 444));
-    
-	/*char buffer[OUTPUT_BUFFER_SIZE];
-	osc::OutboundPacketStream p(buffer, OUTPUT_BUFFER_SIZE);
-
-	p << osc::BeginBundleImmediate
-		<< osc::BeginMessage("/markers/cap")
-		<< value << osc::EndMessage;
-
-	p << osc::EndBundle;
-	transmitSocket.Send(p.Data(), p.Size()); */
 
     char *comPortName  = NULL;
     int   dllVersion   = 0;
@@ -53,7 +41,7 @@ main( void ) {
     
     /* Print driver version number */
     dllVersion = TG_GetVersion();
-    printf( "Stream SDK for PC version: %d\n", dllVersion );
+    printf( "Stream SDK for PC version %d\n", dllVersion );
     
     /* Get a connection ID handle to ThinkGear */
     connectionId = TG_GetNewConnectionId();
@@ -136,10 +124,10 @@ main( void ) {
 	fflush(stdin);
 	errCode = TG_EnableAutoRead(connectionId,1);
 	if(errCode == 0){
-		packetsRead =0;
+		packetsRead = 0;
         errCode = MWM15_setFilterType(connectionId,MWM15_FILTER_TYPE_50HZ);//MWM15_FILTER_TYPE_60HZ
 		printf("MWM15_setFilterType: %d\n",errCode);
-		while(packetsRead <2000){
+		while(packetsRead < 2000){
 			/* If raw value has been updated ... */
             if( TG_GetValueStatus(connectionId, TG_DATA_RAW) != 0 ) {
 
@@ -163,7 +151,6 @@ main( void ) {
 					printf(  " \nMWM15_getFilterType   result: %d  index: %d\n",errCode,packetsRead );
 
 				}
-
             }
 
 			if(TG_GetValueStatus(connectionId, MWM15_DATA_FILTER_TYPE) != 0 ) {

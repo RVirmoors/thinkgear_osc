@@ -23,7 +23,22 @@
     <Library Include="thinkgear64.lib" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="thinkgear_osc.c">
+    <ClCompile Include="..\..\oscpack_1_1_0\ip\win32\NetworkingUtils.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\oscpack_1_1_0\ip\win32\UdpSocket.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\oscpack_1_1_0\ip\IpEndpointName.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\oscpack_1_1_0\osc\OscOutboundPacketStream.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\oscpack_1_1_0\osc\OscTypes.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="thinkgear_osc.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
