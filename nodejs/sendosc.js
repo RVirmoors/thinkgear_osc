@@ -1,5 +1,6 @@
 const http = require('http');
 var qs = require('querystring');
+var bp = require('body-parser');
 
 const hostname = '127.0.0.1';
 const port = 3000;
@@ -24,7 +25,7 @@ const server = http.createServer((request, response) => {
   response.on('error', (err) => {
     console.error(err);
   });
-  if (request.method === 'GET' && request.url === '/page') {
+  if (request.method === 'POST' && request.url === '/qr') {
   	  var requestBody = '';
       request.on('data', function(data) {
         requestBody += data;
@@ -35,6 +36,7 @@ const server = http.createServer((request, response) => {
       });
       request.on('end', function() {
         var formData = qs.parse(requestBody);
+        console.log(formData);
 
 		udpPort.on("ready", function () {
 		    udpPort.send({
@@ -48,7 +50,7 @@ const server = http.createServer((request, response) => {
 		    }, "127.0.0.1", oscSendPort);
 		});
       });
-     response.setHeader('Content-Type', 'text/plain');
+     response.setHeader('Content-Type', 'application/json');
      response.write(requestBody + '\n');
  	 response.end('this is the page number\n');
   } else {

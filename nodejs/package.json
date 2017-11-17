@@ -5,6 +5,7 @@
     "main": "sendosc.js",
     "license": "MIT",
     "dependencies": {
+        "body-parser": "^1.18.2",
         "osc": "2.2.0",
         "semver": "^5.4.1"
     },
