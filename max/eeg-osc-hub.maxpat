@@ -43,8 +43,9 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 121.0, 728.0, 50.0, 22.0 ],
-					"style" : ""
+					"patching_rect" : [ 90.0, 735.0, 50.0, 22.0 ],
+					"style" : "",
+					"text" : "/para 1"
 				}
 
 			}
@@ -69,7 +70,8 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 26.0, 735.0, 50.0, 22.0 ],
-					"style" : ""
+					"style" : "",
+					"text" : "/page 1"
 				}
 
 			}
